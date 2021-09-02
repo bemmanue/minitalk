@@ -10,13 +10,14 @@
 
 typedef struct	s_info
 {
-	char 		c;
-	int			i;
+	char 		character;
+	int			index;
 }				t_info;
 
-void	handler(int signum, siginfo_t *info, void *context);
+void	handler(int signum, siginfo_t *siginfo, void *context);
 void	send_message(char *message, int pid);
 void	send_char(char c, int pid);
+void	check_reception(int signum);
 void	terminate(void);
 
 #endif
