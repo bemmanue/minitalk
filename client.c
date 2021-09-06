@@ -1,6 +1,17 @@
 
 #include "minitalk.h"
 
+int	check_pid(char *pid)
+{
+	while (*pid)
+	{
+		if (!ft_isdigit(*pid))
+			return (0);
+		pid++;
+	}
+	return (1);
+}
+
 void	check_reception(int signum)
 {
 	(void)signum;
@@ -10,7 +21,7 @@ void	send_char(char c, int pid)
 {
 	int i;
 
-	i = 7;
+	i = 8;
 	while (i--)
 	{
 		if (c & 1)
@@ -24,7 +35,7 @@ void	send_char(char c, int pid)
 				terminate();
 		}
 		c >>= 1;
-		usleep (40);
+		usleep (50);
 	}
 }
 
@@ -49,6 +60,11 @@ int main(int argc, char **argv)
 
 	if (argc == 3)
 	{
+		if (!check_pid(argv[1]))
+		{
+			printf("Invalid PID\n");
+			exit (1);
+		}
 		pid = ft_atoi(argv[1]);
 		message = argv[2];
 		act.sa_handler = check_reception;
@@ -58,6 +74,6 @@ int main(int argc, char **argv)
 		printf("The message has been received\n");
 	}
 	else
-		printf("Write server PID and message you want to send\n");
+		printf("Usage: ./client [Server PID] [Message]\n");
 	return (0);
 }

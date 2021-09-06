@@ -13,7 +13,7 @@ void	handler(int signum, siginfo_t *siginfo, void *context)
 	else if (signum == SIGUSR2)
 		info.character += (1 << info.index);
 	info.index++;
-	if (info.index == 7)
+	if (info.index == 8)
 	{
 		write(1, &(info.character), 1);
 		info.index = 0;
