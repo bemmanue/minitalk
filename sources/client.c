@@ -1,16 +1,5 @@
 
-#include "minitalk.h"
-
-int	check_pid(char *pid)
-{
-	while (*pid)
-	{
-		if (!ft_isdigit(*pid))
-			return (0);
-		pid++;
-	}
-	return (1);
-}
+#include "../includes/minitalk.h"
 
 void	check_reception(int signum)
 {

@@ -1,12 +1,11 @@
 
-#include "minitalk.h"
+#include "../includes/minitalk.h"
 
 t_info info;
 
 void	handler(int signum, siginfo_t *siginfo, void *context)
 {
 	(void)context;
-	(void)siginfo;
 
 	if (signum == SIGUSR1)
 		info.character += (0 << info.index);

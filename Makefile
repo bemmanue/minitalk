@@ -8,11 +8,11 @@ CFLAGS			= -Wall -Wextra -Werror
 
 all:			$(SERVER) $(CLIENT)
 
-$(SERVER):		server.c $(LIBFT)
-				$(CC) $(CFLAGS) server.c terminate.c $(LIBFT) -o $(SERVER)
+$(SERVER):		sources/server.c $(LIBFT)
+				$(CC) $(CFLAGS) sources/server.c sources/terminate.c $(LIBFT) -o $(SERVER)
 
-$(CLIENT):		client.c $(LIBFT)
-				$(CC) $(CFLAGS) client.c terminate.c $(LIBFT) -o $(CLIENT)
+$(CLIENT):		sources/client.c $(LIBFT)
+				$(CC) $(CFLAGS) sources/client.c sources/terminate.c sources/check_pid.c $(LIBFT) -o $(CLIENT)
 
 make fclean:
 				rm -rf $(SERVER) $(CLIENT)

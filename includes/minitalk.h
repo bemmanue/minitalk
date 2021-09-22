@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <fcntl.h>
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 typedef struct	s_info
 {
@@ -15,6 +15,7 @@ typedef struct	s_info
 }				t_info;
 
 void	handler(int signum, siginfo_t *siginfo, void *context);
+int		check_pid(char *pid);
 void	send_message(char *message, int pid);
 void	send_char(char c, int pid);
 void	check_reception(int signum);
